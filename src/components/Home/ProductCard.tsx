@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import type { Product } from "../../types";
 import { Plus, Star } from "lucide-react";
+import { useCart } from "../../context/CartContext";
 
 interface Props {
   product: Product;
@@ -9,7 +10,7 @@ interface Props {
 const ProductCard = ({ product }: Props) => {
   const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "R";
 
-  const { addToCart } = { addToCart: (_data: any) => {} };
+  const { addToCart } = useCart();
 
   const navigate = useNavigate();
 
@@ -73,7 +74,13 @@ const ProductCard = ({ product }: Props) => {
             )}
           </div>
 
-          <button className="size-7 rounded-full bg-app-orange text-white flex-center shrink-0 hover:bg-app-orange-dark transition-colors active:scale-95">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              addToCart(product);
+            }}
+            className="size-7 rounded-full bg-app-orange text-white flex-center shrink-0 hover:bg-app-orange-dark transition-colors active:scale-95"
+          >
             <Plus className="size-3.5" />
           </button>
         </div>
