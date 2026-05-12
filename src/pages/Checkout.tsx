@@ -34,7 +34,7 @@ const Checkout = () => {
     zip: "",
     isDefault: false,
     lat: 0,
-    long: 0,
+    lng: 0,
   });
 
   const deliveryFee = cartTotal > 500 ? 0 : 50;
