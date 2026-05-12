@@ -25,7 +25,7 @@ const Banner = () => {
             <span className="hidden sm:inline text-white/40">|</span>
             <div className="hidden sm:flex items-center gap-2">
               <ZapIcon className="size-3.5 fill-yellow-400 text-yellow-400 shrink-0" />
-              <span>Farm Fresh Produce Delivered Daily</span>
+              <span>Fresh Produce Delivered Daily</span>
             </div>
           </div>
           <button
